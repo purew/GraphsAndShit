@@ -54,9 +54,13 @@ class testSimplePlotter : public testGraph
 			setOrthogonal( App.GetWidth(), App.GetHeight() );
 			sf::Randomizer randomizer;
 			randomizer.SetSeed( time(0) );
-			for (int i=0; i<5; i++ )
+			for (int i=0; i<100; i++ )
 			{
-				float randNbr = randomizer.Random( 0.0f, 1.0f ) ;
+				float randNbr;
+				if (i>0)
+					randNbr += randomizer.Random( -0.1f, 0.1f );
+				else
+					randNbr =  randomizer.Random( 0.0f, 1.0f ) ;
 				std::cout << "Adding " << randNbr << std::endl;
 				data.push_back( randNbr );
 			}
